@@ -1,20 +1,9 @@
 @ -1,68 +1,98 @@
 <script setup lang="ts">
-import {h, reactive, ref} from 'vue';
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  HomeOutlined,
-  PicLeftOutlined,
-  InfoCircleOutlined,
-  RedEnvelopeOutlined,
-  AppstoreOutlined,
-  CloudOutlined,
-} from '@ant-design/icons-vue';
+import {reactive} from 'vue';
 import {createFromIconfontCN} from '@ant-design/icons-vue';
 import Urls from '@/assets/urls.json';
 import Icon from '@/assets/icon.svg';
-import router from '@/router/index.ts';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/c/font_4583291_rt4yqubcpzs.js',
@@ -29,26 +18,11 @@ while (temp !== '#') {
   temp = hrefs.pop();
   if (temp !== '#') keys.push(temp);
 }
-
-const state = reactive({
+reactive({
   collapsed: false,
   selectedKeys: [window.location.href.split('/').pop() || 'home'],
   openKeys: keys,
 });
-
-function toggleCollapsed() {
-  state.collapsed = !state.collapsed;
-}
-
-function select(page: any) {
-  let path: string = '';
-  for (let p of page.keyPath) {
-    path += '/' + p
-  }
-  path = path === '/home' ? '/' : path;
-  router.push(path);
-  console.log(state);
-}
 </script>
 
 <template>

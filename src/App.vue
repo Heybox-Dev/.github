@@ -1,19 +1,19 @@
 @ -1,68 +1,98 @@
 <script setup lang="ts">
-import {reactive} from 'vue';
-import {createFromIconfontCN} from '@ant-design/icons-vue';
+import { reactive } from 'vue';
+import { createFromIconfontCN } from '@ant-design/icons-vue';
 import Urls from '@/assets/urls.json';
 import Icon from '@/assets/icon.svg';
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_4583291_rt4yqubcpzs.js',
+  scriptUrl: '//at.alicdn.com/t/c/font_4583291_rt4yqubcpzs.js'
 });
 
 let hrefs = window.location.href.split('/');
 let temp: any = '';
 let keys: string[] = [];
 
-hrefs.pop()
+hrefs.pop();
 while (temp !== '#') {
   temp = hrefs.pop();
   if (temp !== '#') keys.push(temp);
@@ -21,7 +21,7 @@ while (temp !== '#') {
 reactive({
   collapsed: false,
   selectedKeys: [window.location.href.split('/').pop() || 'home'],
-  openKeys: keys,
+  openKeys: keys
 });
 </script>
 
@@ -30,7 +30,7 @@ reactive({
     class="app-header"
     title="Heybox Dev"
     sub-title="Heybox Dev"
-    :avatar="{ src: Icon }">
+    :avatar="{ src: Icon, shape:'square',size:'large' }">
     <template #extra>
       <a-space class="url-list">
         <a-tooltip v-for="url in Urls" placement="left">
@@ -38,7 +38,7 @@ reactive({
             <span>{{ url.tip }}</span>
           </template>
           <a :href="url.url" target="_blank">
-            <icon-font class="icon" :type="'icon-'+url.icon"/>
+            <icon-font class="icon" :type="'icon-'+url.icon" />
           </a>
         </a-tooltip>
       </a-space>
@@ -48,7 +48,7 @@ reactive({
     <a-layout-content>
       <div class="app-scrollbar">
         <div class="app-content">
-          <router-view/>
+          <router-view />
         </div>
         <div class="app-footer">
           <span>

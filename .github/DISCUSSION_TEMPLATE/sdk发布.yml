@@ -11,3 +11,10 @@ body:
         | 下载 |  |
         | 反馈 | (可选) |
         | 官网 | (可选) |
+  - type: checkboxes
+    id: eula
+    attributes:
+      required: true
+      label: 是否符合[SDK发布板块规则](https://github.com/orgs/Heybox-Dev/discussions/2)
+      options:
+        - label: 我已详细阅读[SDK发布板块规则](https://github.com/orgs/Heybox-Dev/discussions/2)并承诺此讨论符合该规则。

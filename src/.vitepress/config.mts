@@ -148,7 +148,7 @@ function getAutoConfig(lang: string = 'zh', homeName = '首页') {
 
     const editLink = {
         text: lang === 'zh' ? '在 GitHub 上编辑此页面' : 'Edit this page on GitHub',
-        pattern: 'https://github.com/Heybox-Dev/heybox-bot-docs/edit/main/docs/:path'
+        pattern: 'https://github.com/Heybox-Dev/.github/edit/main/src/:path'
     }
 
     const socialLinks = [
